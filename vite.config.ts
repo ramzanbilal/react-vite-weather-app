@@ -6,6 +6,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/", // Use "/" for root domain, or "/repo-name/" for GitHub Pages
   server: {
     host: "::",
     port: 8080,
