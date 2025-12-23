@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism Weather App Design System */
+
+@layer base {
+  :root {
+    /* Glassmorphism color palette - vibrant sky theme */
+    --background: 220 65% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 60% 20%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 60% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 280 70% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 50% 25%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 45 93% 58%;
+    --accent-foreground: 220 65% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 40% 30%;
+    --input: 220 40% 25%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Glassmorphism specific */
+    --glass: 220 60% 98% / 0.08;
+    --glass-border: 220 60% 98% / 0.15;
+    --glass-highlight: 220 60% 98% / 0.25;
+    
+    /* Gradient backgrounds */
+    --gradient-sky: linear-gradient(135deg, hsl(220 65% 12%) 0%, hsl(250 60% 18%) 50%, hsl(280 50% 20%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--glass)) 0%, hsl(220 60% 98% / 0.03) 100%);
+    --gradient-sunrise: linear-gradient(180deg, hsl(30 90% 60%) 0%, hsl(45 95% 65%) 50%, hsl(199 89% 48%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(280 60% 45%) 0%, hsl(350 80% 55%) 50%, hsl(30 90% 60%) 100%);
+
+    /* Weather-specific colors */
+    --weather-sunny: 45 93% 58%;
+    --weather-cloudy: 220 20% 70%;
+    --weather-rainy: 199 89% 48%;
+    --weather-stormy: 260 60% 50%;
+    --weather-snowy: 200 30% 95%;
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(220 65% 5% / 0.4);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.3);
+
+    --sidebar-background: 220 60% 15%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 50% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 40% 30%;
+    --sidebar-ring: 199 89% 48%;
+  }
+
+  .dark {
+    --background: 220 65% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 60% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 60% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 280 70% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 50% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 45 93% 58%;
+    --accent-foreground: 220 65% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 40% 20%;
+    --input: 220 40% 18%;
+    --ring: 199 89% 48%;
+    
+    --sidebar-background: 220 60% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 50% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 40% 20%;
+    --sidebar-ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: var(--gradient-sky);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.08] backdrop-blur-xl border border-white/[0.15] shadow-lg;
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.12] backdrop-blur-2xl border border-white/[0.2] shadow-xl;
+  }
+
+  .glass-subtle {
+    @apply bg-white/[0.05] backdrop-blur-lg border border-white/[0.1];
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .weather-gradient {
+    background: var(--gradient-sky);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--muted-foreground) / 0.3) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
